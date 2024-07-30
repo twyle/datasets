@@ -13,12 +13,14 @@ def parse_arguments() -> Namespace:
         epilog='Thanks for using %(prog)s! :)',
     )
     parser.add_argument('--secret-file', help='Secrets file path', type=str, required=True)
+    parser.add_argument('--out-file', help='Dataset file path', type=str, default='timestamps.json')
     parser.add_argument('--GROQ_API_KEY', help="The GROQ API key", type=str, required=True)
     # parser.add_argument(
     #     '--overwrite-function-docstring', nargs='?', default=False, type=bool
     # )
     # parser.add_argument('--directories-ignore', nargs='*', default=[], type=str)
-    # parser.add_argument('--files-ignore', nargs='*', default=[], type=str)
+    parser.add_argument('--playlist_ids', nargs='*', default=[], type=str)
+    parser.add_argument('--playlist_names', nargs='*', default=[], type=str)
     parser.add_argument(
         '--type',
         nargs='?',
@@ -35,6 +37,12 @@ def parse_arguments() -> Namespace:
     resource: str = args.type
     if not args.ids and not args.names:
         print(f"You have to provide either ids or names of the {resource}")
+        raise SystemExit(1)
+    if args.type == 'channels' and max(len(args.ids), len(args.names)) > 1:
+        print("You can only supply one channel id or name")
+        raise SystemExit(1)
+    if args.type == 'channels' and not (args.playlist_ids or args.playlist_names):
+        print("You have to supply the playlist ids or playlist titles")
         raise SystemExit(1)
     os.environ['GROQ_API_KEY'] = args.GROQ_API_KEY
     # paths: list[str] = args.path
@@ -60,6 +68,10 @@ def create_application_config(args: Namespace) -> Config:
         config.ids = set(args.ids)
     if args.names:
         config.names = set(args.names)
+    if args.playlist_ids:
+        config.playlist_ids = set(args.playlist_ids)
+    if args.playlist_names:
+        config.playlist_names = set(args.playlist_names)
     return config
 
 def get_youtube_client(config: Config) -> Any:

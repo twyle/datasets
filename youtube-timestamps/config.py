@@ -17,6 +17,8 @@ class Config(BaseModel):
     names: Optional[set[str]] = Field(description="The video or playlist or channel names", default_factory=set)
     temperature: Optional[int] = Field(description="The model temperature", default=0)
     model: Optional[str] = Field(description="The model to use", default="llama3-8b-8192")
+    playlist_ids: Optional[set[str]] = Field(description="The playlist ids", default_factory=set)
+    playlist_names: Optional[set[str]] = Field(description="The playlist names", default_factory=set)
     
     
     

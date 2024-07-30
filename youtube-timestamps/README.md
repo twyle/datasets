@@ -109,12 +109,12 @@ This module will be used to generate and store timestamps from:
         ```
     - For a single channel with name and playlist names
         ```bash
-        python -m youtube-timestamps --secret-file /home/lyle/oryks/backend/api/libraries/youtube.json --type channels --names 'John Watson Rooney' --playlists_ids PLRzwgpycm-Fi-C7EwEmlSrE0RTX-2Sp06 PLRzwgpycm-FjIPHnCS9q8WH3gjrmbfSgY --GROQ_API_KEY gsk_xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+        python -m youtube-timestamps --secret-file /home/lyle/oryks/backend/api/libraries/youtube.json --type channels --names 'John Watson Rooney' --playlists_names 'Playwright & Python', 'Weekly Web Scraping Tips', 'Web Scraping Tips' --GROQ_API_KEY gsk_xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
         ```
 
     - For a single channel with name(this will parse all the playlists in the channel)
         ```bash
-        python -m youtube-timestamps --secret-file /home/lyle/oryks/backend/api/libraries/youtube.json --type channels --names 'John Watson Rooney' --playlists_ids PLRzwgpycm-Fi-C7EwEmlSrE0RTX-2Sp06 PLRzwgpycm-FjIPHnCS9q8WH3gjrmbfSgY --GROQ_API_KEY gsk_xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+        python -m youtube-timestamps --secret-file /home/lyle/oryks/backend/api/libraries/youtube.json --type channels --names 'John Watson Rooney' --playlists_ids *  --GROQ_API_KEY gsk_xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
         ```
 
 #### Dataset generation guidelines

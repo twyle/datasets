@@ -22,5 +22,437 @@
                 }
             ]
         }
+    },
+    {
+        "instruction": "Extract timestamps from the video description given.",
+        "input": "A quick tip on using sitemaps to find links from a website quickly and efficiently. Many website use XML sitemaps to allow the search engine bots to crawl and index their sites, and we can use them too! In this video I'll give you a quick run down of what a sitemap is, a few techniques to find it and then use BS4 to parse an XML sitemap and extract 4k+ links\n\n\n# Hosting: Digital Ocean (Affiliate Link) - https://m.do.co/c/c7c90f161ff6\n# Gear Used: https://jhnwr.com/gear/ (NEW)\n# Patreon: https://www.patreon.com/johnwatsonrooney (NEW)\n\n# Timestamps\n00:00 - Intro\n00:10 - What is a Sitemap\n00:45 - Finding Sitemaps\n02:04 - Using Google\n03:02 - Robots.txt\n03:40 - Extract Links with Python\n05:52 - Conclusion\n06:51 - Outro (subscribe!)",
+        "output": {
+            "video_id": "lf38KO5-GwQ",
+            "time_stamps": [
+                {
+                    "start_time": "00:00",
+                    "end_time": "00:10",
+                    "title": "Intro"
+                },
+                {
+                    "start_time": "00:10",
+                    "end_time": "00:45",
+                    "title": "What is a Sitemap"
+                },
+                {
+                    "start_time": "00:45",
+                    "end_time": "02:04",
+                    "title": "Finding Sitemaps"
+                },
+                {
+                    "start_time": "02:04",
+                    "end_time": "03:02",
+                    "title": "Using Google"
+                },
+                {
+                    "start_time": "03:02",
+                    "end_time": "03:40",
+                    "title": "Robots.txt"
+                },
+                {
+                    "start_time": "03:40",
+                    "end_time": "05:52",
+                    "title": "Extract Links with Python"
+                },
+                {
+                    "start_time": "05:52",
+                    "end_time": "06:51",
+                    "title": "Conclusion"
+                },
+                {
+                    "start_time": "06:51",
+                    "end_time": "06:51",
+                    "title": "Outro (subscribe!)"
+                }
+            ]
+        }
+    },
+    {
+        "instruction": "Extract timestamps from the video description given.",
+        "input": "Async can be complicated for beginners, managing coroutines and event loops - but in this video I show you an alternative using grequests - all the benefits of Async with the hard work taken care of. Async works by concurrently creating requests to the server without having to wait for each response in turn, it manages them all at the same time. This greatly speeds up the web scraping process when scraping multiple pages. \n\nWe can't include the parsing part asychronously, but that it a CPU intense task and is very quick.I expand on the last video that was on a sandbox site with this real world Python web scraping project that can be implemented to different sites and scaled to many more pages.\n\n\nPart1: https://youtu.be/UDATm1CwIR8\nCode: https://github.com/jhnwr/grequests-scraping\n\n# Support Me\n\n# Amazon US: https://amzn.to/2OzqL1M\n# Amazon UK: https://amzn.to/2OYuMwo\n# Hosting: Digital Ocean: https://m.do.co/c/c7c90f161ff6\n# Gear Used: https://jhnwr.com/gear/ (NEW)\n# Patreon: https://www.patreon.com/johnwatsonrooney (NEW)\n\n\nDisclaimer: These are affiliate links and as an Amazon Associate I earn from qualifying purchases\n\n\n## Timestamps\n\n00:00 - Intro\n00:20 - Code from Part1\n01:03 - The Website\n01:55 - Start Code\n03:36 - Async responses\n04:40 - Checking the HTML\n07:10 - Parsing function\n12:44 - Dictionary for output\n14:56 - Test output & Save to CSV\n16:45 - More pages\n17:42 - Summary & Outro",
+        "output": {
+            "video_id": "0MxLaCES4_8",
+            "time_stamps": [
+                {
+                    "start_time": "00:00",
+                    "end_time": "00:20",
+                    "title": "Intro"
+                },
+                {
+                    "start_time": "00:20",
+                    "end_time": "01:03",
+                    "title": "Code from Part1"
+                },
+                {
+                    "start_time": "01:03",
+                    "end_time": "01:55",
+                    "title": "The Website"
+                },
+                {
+                    "start_time": "01:55",
+                    "end_time": "03:36",
+                    "title": "Start Code"
+                },
+                {
+                    "start_time": "03:36",
+                    "end_time": "04:40",
+                    "title": "Async responses"
+                },
+                {
+                    "start_time": "04:40",
+                    "end_time": "07:10",
+                    "title": "Checking the HTML"
+                },
+                {
+                    "start_time": "07:10",
+                    "end_time": "12:44",
+                    "title": "Parsing function"
+                },
+                {
+                    "start_time": "12:44",
+                    "end_time": "14:56",
+                    "title": "Dictionary for output"
+                },
+                {
+                    "start_time": "14:56",
+                    "end_time": "16:45",
+                    "title": "Test output & Save to CSV"
+                },
+                {
+                    "start_time": "16:45",
+                    "end_time": "17:42",
+                    "title": "More pages"
+                },
+                {
+                    "start_time": "17:42",
+                    "end_time": "18:00",
+                    "title": "Summary & Outro"
+                }
+            ]
+        }
+    },
+    {
+        "instruction": "Extract timestamps from the video description given.",
+        "input": "Async/Await is a popular way to speed up requests being made to a server, its used both client and server side. This is a basic example of how it can work with Requests-HTML and web scraping.\n\nIt works by gathering tasks and running them at the same time eliminating the time spent waiting for a reponse to our request. It stores up and manages the responses for us enabling us to greatly increase the speed of our web scraping.\n\n\nSupport Me:\n\n# Patreon: https://www.patreon.com/johnwatsonrooney (NEW)\n# Amazon US: https://amzn.to/2OzqL1M\n# Amazon UK: https://amzn.to/2OYuMwo\n# Hosting: Digital Ocean: https://m.do.co/c/c7c90f161ff6\n# Gear Used: https://jhnwr.com/gear/ (NEW)\n\n-------------------------------------\nDisclaimer: These are affiliate links and as an Amazon Associate I earn from qualifying purchases\n-------------------------------------\n\n# Timestamps\n00:00 - Intro\n01:04 - No ASYNC\n01:44 - Basic ASYNC explanation\n02:22 - Change the code to ASYNC\n04:35 - Tasks\n06:35 - Asycio.run()\n07:33 - Speed test\n08:26 - Outro",
+        "output": {
+            "video_id": "8drEB06QjLs",
+            "time_stamps": [
+                {
+                    "start_time": "00:00",
+                    "end_time": "01:04",
+                    "title": "Intro"
+                },
+                {
+                    "start_time": "01:04",
+                    "end_time": "01:44",
+                    "title": "No ASYNC"
+                },
+                {
+                    "start_time": "01:44",
+                    "end_time": "02:22",
+                    "title": "Basic ASYNC explanation"
+                },
+                {
+                    "start_time": "02:22",
+                    "end_time": "04:35",
+                    "title": "Change the code to ASYNC"
+                },
+                {
+                    "start_time": "04:35",
+                    "end_time": "06:35",
+                    "title": "Tasks"
+                },
+                {
+                    "start_time": "06:35",
+                    "end_time": "07:33",
+                    "title": "Asycio.run()"
+                },
+                {
+                    "start_time": "07:33",
+                    "end_time": "08:26",
+                    "title": "Speed test"
+                },
+                {
+                    "start_time": "08:26",
+                    "end_time": "09:00",
+                    "title": "Outro"
+                }
+            ]
+        }
+    },
+    {
+        "instruction": "Extract timestamps from the video description given.",
+        "input": "I've put together a short video with 5 tips that I feel could help you some of you that are new to web scraping with python. I hope they benefit you in some way!\n\n# Patreon: https://www.patreon.com/johnwatsonrooney\n# Donations: https://www.paypal.com/donate/?hosted_button_id=7HNSFPRR9N63Y\n# Proxies: https://iproyal.club/JWR50\n# Hosting: Digital Ocean: https://m.do.co/c/c7c90f161ff6\n# Gear I use: https://www.amazon.co.uk/shop/johnwatsonrooney\n\nDisclaimer: These are affiliate links and as an Amazon Associate I earn from qualifying purchases\n\n\n# Timestamps\n00:00 Intro\n00:24 Investigate the site\n01:40 Practice Parsing Locally\n02:32 Write a Plan\n04:17 Don't Over complicate it\n05:12 Pick the right tool",
+        "output": {
+            "video_id": "09pgRsEZyK4",
+            "time_stamps": [
+                {
+                    "start_time": "00:00",
+                    "end_time": "00:24",
+                    "title": "Intro"
+                },
+                {
+                    "start_time": "00:24",
+                    "end_time": "01:40",
+                    "title": "Investigate the site"
+                },
+                {
+                    "start_time": "01:40",
+                    "end_time": "02:32",
+                    "title": "Practice Parsing Locally"
+                },
+                {
+                    "start_time": "02:32",
+                    "end_time": "04:17",
+                    "title": "Write a Plan"
+                },
+                {
+                    "start_time": "04:17",
+                    "end_time": "05:12",
+                    "title": "Don't Over complicate it"
+                }
+            ]
+        }
+    },
+    {
+        "instruction": "Extract timestamps from the video description given.",
+        "input": "Welcome to my new weekly series! Each week we will scrape a new site, and talk about how we achieved extracting the data. Includes different web scraping tools, techniques and general approach to web scraping.\n\nThis week we show how to work wih multiple pages, lists and functions, taking data in and exporting to CSV and much more.\n\n# CSS Selectors: https://www.youtube.com/watch?v=hkDAW7hhEYU\n# Code: https://github.com/jhnwr/weeklywebscraper\n# Hosting: Digital Ocean (Affiliate Link) - https://m.do.co/c/c7c90f161ff6\n# Gear Used: https://jhnwr.com/gear/ (NEW)\n# Patreon: https://www.patreon.com/johnwatsonrooney (NEW)\n\n# Timestamps:\n00:00 - Intro\n00:26 - Check the Site\n02:05 - Search the Source\n05:03 - CSS Selectors\n10:32 - Create Functions\n13:07 - Scrape Each Product Page\n19:11 - If __name__ == '__main__'\n21:00 - JSON Normalise\n21:30 - Output to CSV\n22:10 - Completed Output\n22:43 - Summary and Outro",
+        "output": {
+            "video_id": "aA4o98Xb8JU",
+            "time_stamps": [
+                {
+                    "start_time": "00:00",
+                    "end_time": "00:26",
+                    "title": "Intro"
+                },
+                {
+                    "start_time": "00:26",
+                    "end_time": "02:05",
+                    "title": "Check the Site"
+                },
+                {
+                    "start_time": "02:05",
+                    "end_time": "05:03",
+                    "title": "Search the Source"
+                },
+                {
+                    "start_time": "05:03",
+                    "end_time": "10:32",
+                    "title": "CSS Selectors"
+                },
+                {
+                    "start_time": "10:32",
+                    "end_time": "13:07",
+                    "title": "Create Functions"
+                },
+                {
+                    "start_time": "13:07",
+                    "end_time": "19:11",
+                    "title": "Scrape Each Product Page"
+                },
+                {
+                    "start_time": "19:11",
+                    "end_time": "21:00",
+                    "title": "If __name__ == '__main__'"
+                },
+                {
+                    "start_time": "21:00",
+                    "end_time": "21:30",
+                    "title": "JSON Normalise"
+                },
+                {
+                    "start_time": "21:30",
+                    "end_time": "22:10",
+                    "title": "Output to CSV"
+                },
+                {
+                    "start_time": "22:10",
+                    "end_time": "22:43",
+                    "title": "Completed Output"
+                },
+                {
+                    "start_time": "22:43",
+                    "end_time": "",
+                    "title": "Summary and Outro"
+                }
+            ]
+        }
+    },
+    {
+        "instruction": "Extract timestamps from the video description given.",
+        "input": "In this episode of Weekly Web Scraping we look at scraping Amazon product reviews. Using Requests-HTML we can extract and save to CSV the top reivew data for each product. We use CSS selectors, list comprehension, write own on functions and work through how to get the data from the website to a CSV file.\n\n\n# Sessions: https://youtu.be/IDhuUpeF1n0\n\n# Code: https://github.com/jhnwr/weeklywebscraper\n# Hosting: Digital Ocean (Affiliate Link) - https://m.do.co/c/c7c90f161ff6\n# Gear Used: https://jhnwr.com/gear/ (NEW)\n# Patreon: https://www.patreon.com/johnwatsonrooney (NEW)\n\n\n# Timestamps\n\n\n00:00 - Intro\n01:15 - Data to scrape\n02:10 - Getting the data\n04:25 - CSS Selectors\n07:07 - List Comprehension\n08:14 - Get ASINS function\n09:22 - Product Page\n19:37 - Complete Data\n21:31 - Main() function\n23:28 - Saving to CSV\n24:15 - Overview\n25:02 - Troubleshooting\n26:00 - Running Demo\n27:15 - Another error\n28:00 - Our CSV file & Outro",
+        "output": {
+            "video_id": "2O1pOuakEVE",
+            "time_stamps": [
+                {
+                    "start_time": "00:00",
+                    "end_time": "00:00",
+                    "title": "Intro"
+                },
+                {
+                    "start_time": "01:15",
+                    "end_time": "01:15",
+                    "title": "Data to scrape"
+                },
+                {
+                    "start_time": "02:10",
+                    "end_time": "02:10",
+                    "title": "Getting the data"
+                },
+                {
+                    "start_time": "04:25",
+                    "end_time": "04:25",
+                    "title": "CSS Selectors"
+                },
+                {
+                    "start_time": "07:07",
+                    "end_time": "07:07",
+                    "title": "List Comprehension"
+                },
+                {
+                    "start_time": "08:14",
+                    "end_time": "08:14",
+                    "title": "Get ASINS function"
+                },
+                {
+                    "start_time": "09:22",
+                    "end_time": "09:22",
+                    "title": "Product Page"
+                },
+                {
+                    "start_time": "19:37",
+                    "end_time": "19:37",
+                    "title": "Complete Data"
+                },
+                {
+                    "start_time": "21:31",
+                    "end_time": "21:31",
+                    "title": "Main() function"
+                },
+                {
+                    "start_time": "23:28",
+                    "end_time": "23:28",
+                    "title": "Saving to CSV"
+                },
+                {
+                    "start_time": "24:15",
+                    "end_time": "24:15",
+                    "title": "Overview"
+                },
+                {
+                    "start_time": "25:02",
+                    "end_time": "25:02",
+                    "title": "Troubleshooting"
+                },
+                {
+                    "start_time": "26:00",
+                    "end_time": "26:00",
+                    "title": "Running Demo"
+                },
+                {
+                    "start_time": "27:15",
+                    "end_time": "27:15",
+                    "title": "Another error"
+                },
+                {
+                    "start_time": "28:00",
+                    "end_time": "28:00",
+                    "title": "Our CSV file & Outro"
+                }
+            ]
+        }
+    },
+    {
+        "instruction": "Extract timestamps from the video description given.",
+        "input": "This week I am revisiting a web scraper that I wrote almost a year ago, and improving and cleaning it up. Using requests, beautifulsoup and some user defined functions we deal with pagination and export products to a csv file using pandas. Itertools helps to flatten out a list of lists and is a handy solution to know.\n\n\nLearning Python with Web Scraping is a good fun and practical way to improve your coding abilities. It was interesting for me to see how much I have improved in the last year going over and rewriting a scraping script.\n\n\nSupport Me:\n\n# Amazon US: https://amzn.to/2OzqL1M\n# Amazon UK: https://amzn.to/2OYuMwo\n# Hosting: Digital Ocean: https://m.do.co/c/c7c90f161ff6\n# Gear Used: https://jhnwr.com/gear/ (NEW)\n# Patreon: https://www.patreon.com/johnwatsonrooney (NEW)\n\n-------------------------------------\nDisclaimer: These are affiliate links and as an Amazon Associate I earn from qualifying purchases\n-------------------------------------",
+        "output": {
+            "video_id": "UClHOT_7hok",
+            "time_stamps": [
+                {
+                    "start_time": "0:00",
+                    "end_time": "0:00",
+                    "title": "Introduction"
+                },
+                {
+                    "start_time": "0:30",
+                    "end_time": "1:30",
+                    "title": "Web Scraper Overview"
+                },
+                {
+                    "start_time": "2:00",
+                    "end_time": "3:00",
+                    "title": "Using requests, beautifulsoup and user defined functions"
+                },
+                {
+                    "start_time": "3:30",
+                    "end_time": "4:30",
+                    "title": "Dealing with pagination and exporting products to a csv file using pandas"
+                },
+                {
+                    "start_time": "5:00",
+                    "end_time": "5:30",
+                    "title": "Itertools and flattening out a list of lists"
+                },
+                {
+                    "start_time": "6:00",
+                    "end_time": "7:00",
+                    "title": "Conclusion and improvement over the last year"
+                }
+            ]
+        }
+    },
+    {
+        "instruction": "Extract timestamps from the video description given.",
+        "input": "By far the easiest and best way to scrape any website is to find the API endpoint, the place where the server puts up the information for the site to render into what we see. It's JSON data - we can mimick the request made with Python using Insomnia API client and extract the data directly, without having to render any pages or parse any HTML. This is the fastest and easy way to scrape data in 2021.\n\n\nSupport Me:\n\n# Proxies I use: https://proxyscrape.com/?ref=jhnwr\n# Hosting: Digital Ocean: https://m.do.co/c/c7c90f161ff6\n# Gear Used: https://jhnwr.com/gear/ (NEW)\n# Patreon: https://www.patreon.com/johnwatsonrooney (NEW)\n-------------------------------------\nDisclaimer: These are affiliate links and as an Amazon Associate I earn from qualifying purchases\n-------------------------------------\n\n\n# Timestamps\n00:00 Intro\n00:25 Finding the Data\n03:10 Copy cURL\n05:15 Generate Code\n06:50 Save the Response\n08:15 Extract from JSON\n13:58 Combine requests and parse\n14:45 Outro and Synopsis",
+        "output": {
+            "video_id": "hV5k1XbcZXA",
+            "time_stamps": [
+                {
+                    "start_time": "00:00",
+                    "end_time": "00:25",
+                    "title": "Intro"
+                },
+                {
+                    "start_time": "00:25",
+                    "end_time": "03:10",
+                    "title": "Finding the Data"
+                },
+                {
+                    "start_time": "03:10",
+                    "end_time": "05:15",
+                    "title": "Copy cURL"
+                },
+                {
+                    "start_time": "05:15",
+                    "end_time": "06:50",
+                    "title": "Generate Code"
+                },
+                {
+                    "start_time": "06:50",
+                    "end_time": "08:15",
+                    "title": "Save the Response"
+                },
+                {
+                    "start_time": "08:15",
+                    "end_time": "13:58",
+                    "title": "Extract from JSON"
+                },
+                {
+                    "start_time": "13:58",
+                    "end_time": "14:45",
+                    "title": "Combine requests and parse"
+                },
+                {
+                    "start_time": "14:45",
+                    "end_time": "15:00",
+                    "title": "Outro and Synopsis"
+                }
+            ]
+        }
     }
 ]

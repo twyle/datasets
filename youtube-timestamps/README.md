@@ -98,8 +98,28 @@ This module will be used to generate and store timestamps from:
         python -m youtube-timestamps --secret-file /home/lyle/oryks/backend/api/libraries/youtube.json --type videos --ids 6st4IxEF-90 --GROQ_API_KEY gsk_xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
         ```
 
+    - For a single playlist with id
+        ```bash
+        python -m youtube-timestamps --secret-file /home/lyle/oryks/backend/api/libraries/youtube.json --type playlists --ids PLQpVsaqBj4RLwXMZ9LaAFf4rVowiC3ZcG --GROQ_API_KEY gsk_xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+        ```
+
+    - For a single channel with id and playlists ids
+        ```bash
+        python -m youtube-timestamps --secret-file /home/lyle/oryks/backend/api/libraries/youtube.json --type channels --ids UC8tgRQ7DOzAbn9L7zDL8mLg --playlists_ids PLRzwgpycm-Fi-C7EwEmlSrE0RTX-2Sp06 PLRzwgpycm-FjIPHnCS9q8WH3gjrmbfSgY --GROQ_API_KEY gsk_xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+        ```
+    - For a single channel with name and playlist names
+        ```bash
+        python -m youtube-timestamps --secret-file /home/lyle/oryks/backend/api/libraries/youtube.json --type channels --names 'John Watson Rooney' --playlists_ids PLRzwgpycm-Fi-C7EwEmlSrE0RTX-2Sp06 PLRzwgpycm-FjIPHnCS9q8WH3gjrmbfSgY --GROQ_API_KEY gsk_xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+        ```
+
+    - For a single channel with name(this will parse all the playlists in the channel)
+        ```bash
+        python -m youtube-timestamps --secret-file /home/lyle/oryks/backend/api/libraries/youtube.json --type channels --names 'John Watson Rooney' --playlists_ids PLRzwgpycm-Fi-C7EwEmlSrE0RTX-2Sp06 PLRzwgpycm-FjIPHnCS9q8WH3gjrmbfSgY --GROQ_API_KEY gsk_xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+        ```
+
 #### Dataset generation guidelines
 - Always supply the video id instead of the title; when the title is supplied, the module searches for the video which consumes api quotas
-- Always supply the playlist id and When you supply the playlist title, ensure you supply the channel title or channel id. The playlist title will be used to search for the playlist in the given channel
+- Always supply the playlist id. If you want to supply the playlist title, you must also supply the channel name or title
+- When you supply the channel id or title, you can supply the playlist ids or playlist titles. If you do not supply the playlists titles or ids, all the playlists will be parsed. You can only supply a single channel at a time.
 
 

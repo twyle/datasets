@@ -4,7 +4,7 @@ from pydantic import BaseModel, Field
 
 
 class Config(BaseModel):
-    out_file: str = Field(
+    data_dir: str = Field(
         description='Where to save the dataset'
     )
     secret_file: str = Field(

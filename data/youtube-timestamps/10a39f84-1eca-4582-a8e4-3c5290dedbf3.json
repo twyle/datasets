@@ -1,0 +1,108 @@
+[
+    {
+        "instruction": "Extract timestamps from the video description given.",
+        "input": "\ud83d\ude80 https://neetcode.io/ - A better way to prepare for Coding Interviews\n\n\ud83e\udd77 Discord: https://discord.gg/ddjKRXPqtk\n\ud83d\udc26 Twitter: https://twitter.com/neetcode1\n\n\ud83d\udc2e Support the channel: https://www.patreon.com/NEETcode\n\n\u2b50 BLIND-75 PLAYLIST: https://www.youtube.com/watch?v=KLlXCFG5TnA&list=PLot-Xpze53ldVwtstag2TL4HQhAnC8ATf\n\ud83d\udca1 DYNAMIC PROGRAMMING PLAYLIST: https://www.youtube.com/watch?v=73r3KWiEvyk&list=PLot-Xpze53lcvx_tjrr_m2lgD2NsRHlNO&index=1\n\nProblem Link: https://leetcode.com/problems/accounts-merge/\n\n0:00 - Read the problem\n0:50 - Drawing Explanation\n10:10 - Coding Explanation\n\nleetcode 721\n\n#neetcode #leetcode #python",
+        "output": {
+            "video_id": "6st4IxEF-90",
+            "time_stamps": [
+                {
+                    "timestamp": "0:00",
+                    "title": "Read the problem"
+                },
+                {
+                    "timestamp": "0:50",
+                    "title": "Drawing Explanation"
+                },
+                {
+                    "timestamp": "10:10",
+                    "title": "Coding Explanation"
+                }
+            ]
+        }
+    },
+    {
+        "instruction": "Extract timestamps from the video description given.",
+        "input": "\u27a1\ufe0f Get Life-time Access to the Complete Scripts (and future improvements): https://Trelis.com/ADVANCED-fine-tuning\n\u27a1\ufe0f One-click fine-tuning and LLM templates: https://github.com/TrelisResearch/one-click-llms\n\u27a1\ufe0f Newsletter: https://blog.Trelis.com\n\u27a1\ufe0f Resources/Support/Discord: https://Trelis.com/About\n\nVIDEO RESOURCES:\n- Slides: https://docs.google.com/presentation/d/1-hw1e1JgYkAxc-DTxBDmF1XXXTvWc4NtWnJ8-_yHsbQ/edit?usp=sharing\n- Sentence Bert Models: https://sbert.net/index.html\n- ALL-SORT Video (LLM retrieval): https://www.youtube.com/watch?v=biJmRQF8bmY\n\nTIMESTAMPS:\n0:00 Mastering Retrieval (RAG) for LLMs\n0:44 Video Overview\n13:19 Baseline Performance with No Retrieval\n17:29 Document Chunking - Naive vs Sentence based\n24:34 BM25\n33:20 Semantic / Vector / Embeddings Search\n39:59 Cosine vs Dot Product Similarity\n43:21 Generating Chunks and Embeddings\n50:50 Running BM25 and Similarity Retrieval\n55:22 Performance with BM25 vs Similarity\n58:36 Fine-tuning embeddings / encoders\n1:04:00 Preparing fine-tuning datasets\n1:14:54 Embeddings Training Continued\n1:22:00 Performance after Fine-tuning\n1:25:58 Re-rankers\n1:27:10: Cross-encoders\n1:30:47 LLM re-rankers\n1:36:11 Re-ranking performance\n1:48:50 Final Tips",
+        "output": {
+            "video_id": "9QJXvNiJIG8",
+            "time_stamps": [
+                {
+                    "timestamp": "0:00",
+                    "title": "Mastering Retrieval (RAG) for LLMs"
+                },
+                {
+                    "timestamp": "0:44",
+                    "title": "Video Overview"
+                },
+                {
+                    "timestamp": "13:19",
+                    "title": "Baseline Performance with No Retrieval"
+                },
+                {
+                    "timestamp": "17:29",
+                    "title": "Document Chunking - Naive vs Sentence based"
+                },
+                {
+                    "timestamp": "24:34",
+                    "title": "BM25"
+                },
+                {
+                    "timestamp": "33:20",
+                    "title": "Semantic / Vector / Embeddings Search"
+                },
+                {
+                    "timestamp": "39:59",
+                    "title": "Cosine vs Dot Product Similarity"
+                },
+                {
+                    "timestamp": "43:21",
+                    "title": "Generating Chunks and Embeddings"
+                },
+                {
+                    "timestamp": "50:50",
+                    "title": "Running BM25 and Similarity Retrieval"
+                },
+                {
+                    "timestamp": "55:22",
+                    "title": "Performance with BM25 vs Similarity"
+                },
+                {
+                    "timestamp": "58:36",
+                    "title": "Fine-tuning embeddings / encoders"
+                },
+                {
+                    "timestamp": "1:04:00",
+                    "title": "Preparing fine-tuning datasets"
+                },
+                {
+                    "timestamp": "1:14:54",
+                    "title": "Embeddings Training Continued"
+                },
+                {
+                    "timestamp": "1:22:00",
+                    "title": "Performance after Fine-tuning"
+                },
+                {
+                    "timestamp": "1:25:58",
+                    "title": "Re-rankers"
+                },
+                {
+                    "timestamp": "1:27:10",
+                    "title": "Cross-encoders"
+                },
+                {
+                    "timestamp": "1:30:47",
+                    "title": "LLM re-rankers"
+                },
+                {
+                    "timestamp": "1:36:11",
+                    "title": "Re-ranking performance"
+                },
+                {
+                    "timestamp": "1:48:50",
+                    "title": "Final Tips"
+                }
+            ]
+        }
+    }
+]

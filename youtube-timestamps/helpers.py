@@ -11,8 +11,9 @@ from youtube.schemas import (
 from youtube.models import Video, PlaylistItem
 from .config import Config
 import json
-from os import path
+from os import path, mkdir
 from .constants import INSTRUCTION
+from uuid import uuid4
 
 
 def get_video_descriptions(video_ids: list[str], youtube: YouTube) -> list[str]:
@@ -24,30 +25,34 @@ def get_video_descriptions(video_ids: list[str], youtube: YouTube) -> list[str]:
     return video_descriptions
 
 
-def generate_datapoint(timestamps: TimeStamps, video_description: dict[str, str]) -> dict:
-    data: dict = dict(
-        instruction=INSTRUCTION,
-        input=video_description['video_description'],
-        output=timestamps.dict()
-    )
-    return data
+def generate_datapoint(timestamps: list[TimeStamps], video_descriptions: list[dict[str, str]]) -> list[dict]:
+    datapoints: list[dict] = []
+    for timestamp, video_description in zip(timestamps, video_descriptions):
+        data: dict = dict(
+            instruction=INSTRUCTION,
+            input=video_description['video_description'],
+            output=timestamp.dict()
+        )
+        datapoints.append(data)
+    return datapoints
 
 
 def save_timestamps(
     timestamps: list[TimeStamps], 
-    video_description: dict[str, str], 
+    video_descriptions: list[dict[str, str]], 
     config: Config
     ) -> None:
-    save_path: str = config.out_file
-    if not path.exists(save_path):
-        with open(save_path, 'w') as f:
-            json.dump([], f)
-    with open(save_path, 'r') as f:
-        all_data: list[dict] = json.load(f)
-    data: dict = generate_datapoint(timestamps=timestamps, video_description=video_description)
-    all_data.append(data)
-    with open(save_path, 'w') as f:
-        json.dump(all_data, f, indent=4)
+    data_dir: str = config.data_dir
+    if not path.exists(data_dir):
+        mkdir(data_dir)
+    file_name: str = f"{str(uuid4())}.json"
+    file_path: str = path.join(data_dir, file_name)
+    print(timestamps)
+    print("==============")
+    print(video_descriptions)
+    data: dict = generate_datapoint(timestamps=timestamps, video_descriptions=video_descriptions)
+    with open(file_path, 'w', encoding="utf-8") as f:
+        json.dump(data, f, indent=4)
 
 
 def parse_video_timestamps_batch(

@@ -7,7 +7,8 @@ from .models import TimeStamps
 from langchain_groq import ChatGroq
 from langchain.base_language import BaseLanguageModel
 from youtube.schemas import (
-    SearchFilter, SearchOptionalParameters, SearchPart, YouTubeRequest, YouTubeResponse
+    SearchFilter, SearchOptionalParameters, SearchPart, YouTubeRequest, YouTubeResponse, 
+    YouTubeListResponse
 )
 from typing import Iterator, Generator
 from youtube.models import Search
@@ -66,11 +67,21 @@ def get_playlist_ids(playlist_names: list[str], youtube: YouTube, channel_id: st
     pass
 
 
-def get_channel_ids(channel_names: list[str], youtube: YouTube) -> list[str]:
-    pass
+def get_channel_ids(channel_names: list[str], youtube: YouTube) -> list[str | None]:
+    channel_ids: list[str] = []
+    for channel_name in channel_names:
+        try:
+            response: Search = youtube.find_channel_by_name(display_name=channel_name)
+        except ValueError as e:
+            pass
+        else:
+            channel_id: str = response.channel_id
+            channel_ids.append(channel_id)
+    return channel_ids
+        
 
 
-def generate_videos_timestamps(config: Config) -> tuple[list[TimeStamps] | None, list[dict[str, str]] | None]:
+def generate_videos_timestamps(config: Config) -> None:
     print("Generating video timestamps")
     if config.ids:
         video_ids: list[str] = list(config.ids)
@@ -79,21 +90,21 @@ def generate_videos_timestamps(config: Config) -> tuple[list[TimeStamps] | None,
             video_names=list(config.names), 
             youtube=get_youtube_client(config=config)
         )
-    if not video_ids:
-        return None, None
-    descriptions: list[str] = get_video_descriptions(
-        video_ids=video_ids, 
-        youtube=get_youtube_client(config=config)
-    )
-    llm: BaseLanguageModel = ChatGroq(
-        temperature=config.temperature, 
-        model_name=config.model
-    )
-    timestamps, descriptions = parse_video_timestamps_batch(
-        video_descriptions=descriptions,
-        llm=llm
-    )
-    return timestamps, descriptions
+    if video_ids:
+        descriptions: list[str] = get_video_descriptions(
+            video_ids=video_ids, 
+            youtube=get_youtube_client(config=config)
+        )
+        llm: BaseLanguageModel = ChatGroq(
+            temperature=config.temperature, 
+            model_name=config.model
+        )
+        timestamps, descriptions = parse_video_timestamps_batch(
+            video_descriptions=descriptions,
+            llm=llm
+        )
+        save_timestamps(timestamps=timestamps, video_descriptions=descriptions, config=config)
+        print(timestamps)
 
 
 def get_playlist_videos(playlist_id: str, youtube: YouTube) -> Generator:
@@ -139,39 +150,50 @@ def generate_playlists_timestamps(config: Config) -> tuple[list[TimeStamps] | No
     all_timestamps = list(itertools.chain.from_iterable(all_timestamps))
     return all_timestamps, all_descriptions
 
+
+def get_channel_playlists(channel_id: str, youtube: YouTube) -> Generator:
+    playlists_iterator: Iterator = youtube.get_playlists_iterator(
+        channel_id=channel_id, max_results=25
+    )
+    for playlists in playlists_iterator:
+        playlist_ids: list[str] = [playlist.id for playlist in playlists]
+        yield playlist_ids
+
+
 def generate_channels_timestamps(config: Config) -> tuple[list[TimeStamps] | None, list[dict[str, str]] | None]:
     print("Generating channels timestamps")
+    youtube: YouTube = get_youtube_client(config=config)
     if config.ids:
-        if config.playlist_ids and config.playlist_ids != ['*']:
+        if config.playlist_ids:
             playlist_ids: list[str] = list(config.playlist_ids)
-        elif config.playlist_names and config.playlist_names != ['*']:
+        elif config.playlist_names:
             playlist_ids: list[str] = get_playlist_ids(
                 playlist_names=list(config.playlist_names), 
                 youtube=get_youtube_client(config=config),
                 channel_id=config.ids[0]
             )
         else:
-            # Get all the channel playlists
-            pass
+            print("Getting all the playlists")
+            playlist_ids: list[str] = list(get_channel_playlists(channel_id=list(config.ids)[0], youtube=youtube))
     else:
         channel_ids: list[str] = get_channel_ids(
             channel_names=list(config.names), 
             youtube=get_youtube_client(config=config)
         )
-        if config.playlist_ids and config.playlist_ids != ['*']:
+        if config.playlist_ids:
             playlist_ids: list[str] = list(config.playlist_ids)
-        elif config.playlist_names and config.playlist_names != ['*']:
+        elif config.playlist_names:
             playlist_ids: list[str] = get_playlist_ids(
                 playlist_names=list(config.playlist_names), 
                 youtube=get_youtube_client(config=config),
                 channel_id=channel_ids[0]
             )
         else:
-            # Get all the channel playlists
-            pass
+            print("Getting all the playlists")
+            playlist_ids: list[str] = list(get_channel_playlists(channel_id=list(config.ids)[0], youtube=youtube))
     if not playlist_ids:
         return None, None
-    youtube: YouTube = get_youtube_client(config=config)
+    playlist_ids = list(itertools.chain.from_iterable(playlist_ids))
     all_descriptions: list[list[str]] = []
     all_timestamps: list[list[TimeStamps]] = []
     for playlist_id in playlist_ids:
@@ -188,6 +210,7 @@ def generate_channels_timestamps(config: Config) -> tuple[list[TimeStamps] | Non
                 video_descriptions=descriptions,
                 llm=llm
             )
+            # save_timestamps(timestamps=timestamps, video_description=descriptions, config=config)
             all_timestamps.append(timestamps)
             all_descriptions.append(descriptions)
     all_descriptions = list(itertools.chain.from_iterable(all_descriptions))
@@ -204,8 +227,4 @@ strategy: dict[str, Callable] = dict(
 
 def generate_timestamps(config: Config) -> None:
     print("Generating the timestamps")
-    timestamps, descriptions = strategy[config.type](config)
-    print(len(timestamps))
-    # if timestamps and descriptions:
-    #     for timestamp, description in zip(timestamps, descriptions):
-    #         save_timestamps(timestamps=timestamp, video_description=description, config=config)
+    strategy[config.type](config)

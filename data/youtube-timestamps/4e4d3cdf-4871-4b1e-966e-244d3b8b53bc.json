@@ -1,13 +1,3 @@
-# Datasets
-
-## Overview
-
-This repository contains the code for generating datasets used in finetuning and training various models. The datasets currently include:
-
-- [YouTube Timestamps Extractor](./youtube-timestamps/) - This is a dataset that is used in the finteuning of a ``TinyLLama`` chat model for extraaction of timestamps from youtube videos. The timestamps are used to separate a video into different sections.
-  It consists of a list of dictionaries of ``instruction``, ``input`` and ``output`` keys. Here is a sample:
-
-```python
 [
     {
         "instruction": "Extract timestamps from the video description given.",
@@ -31,13 +21,3 @@ This repository contains the code for generating datasets used in finetuning and
         }
     }
 ]
-```
-
-To generate timestamps from a playlist:
-```bash
-python -m youtube-timestamps --secret-file /home/lyle/oryks/backend/api/libraries/youtube.json --type channels --names 'John Watson Rooney' --playlists_names 'Playwright & Python', 'Weekly Web Scraping Tips', 'Web Scraping Tips' --GROQ_API_KEY gsk_xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
-```
-Then upload the dataset to huggingface:
-```python
-python upload.py -d youtube-timestamps
-```

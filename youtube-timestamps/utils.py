@@ -13,7 +13,7 @@ def parse_arguments() -> Namespace:
         epilog='Thanks for using %(prog)s! :)',
     )
     parser.add_argument('--secret-file', help='Secrets file path', type=str, required=True)
-    parser.add_argument('--out-file', help='Dataset file path', type=str, default='timestamps.json')
+    parser.add_argument('--data-dir', help='Dataset directory', type=str, default='data')
     parser.add_argument('--GROQ_API_KEY', help="The GROQ API key", type=str, required=True)
     # parser.add_argument(
     #     '--overwrite-function-docstring', nargs='?', default=False, type=bool
@@ -41,9 +41,9 @@ def parse_arguments() -> Namespace:
     if args.type == 'channels' and max(len(args.ids), len(args.names)) > 1:
         print("You can only supply one channel id or name")
         raise SystemExit(1)
-    if args.type == 'channels' and not (args.playlist_ids or args.playlist_names):
-        print("You have to supply the playlist ids or playlist titles")
-        raise SystemExit(1)
+    # if args.type == 'channels' and not (args.playlist_ids or args.playlist_names):
+    #     print("You have to supply the playlist ids or playlist titles")
+    #     raise SystemExit(1)
     os.environ['GROQ_API_KEY'] = args.GROQ_API_KEY
     # paths: list[str] = args.path
     # for entry in paths:
@@ -60,7 +60,7 @@ def parse_arguments() -> Namespace:
 
 def create_application_config(args: Namespace) -> Config:
     config: Config = Config(
-        out_file=args.out_file,
+        data_dir=args.data_dir,
         secret_file=args.secret_file,
         type=args.type
     )
